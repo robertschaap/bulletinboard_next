@@ -6,8 +6,8 @@ const Select = styled.select`
   display: block;
   border: none;
   border-radius: 5px;
-  margin: 1rem auto;
-  width: 25%;
+  margin-bottom: 0.5rem;
+  width: 100%;
   text-align: center;
 `;
 
