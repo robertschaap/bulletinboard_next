@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 import ContentWrapper from "./ContentWrapper";
 
@@ -34,8 +35,12 @@ export default () => (
     <ContentWrapper>
       <Heading1>Bulletin Board</Heading1>
       <nav>
-        <Navlink href="#">Write</Navlink>
-        <Navlink href="#">Read</Navlink>
+        <Link href="/writesomething">
+          <Navlink>Write</Navlink>
+        </Link>
+        <Link href="/readsomething">
+          <Navlink>Read</Navlink>
+        </Link>
       </nav>
     </ContentWrapper>
   </Navbar>
