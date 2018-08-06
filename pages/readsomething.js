@@ -20,6 +20,8 @@ class ReadSomething extends Component {
   }
 
   render() {
+    const { comments } = this.state;
+
     return (
       <Layout>
         <section>
@@ -28,7 +30,9 @@ class ReadSomething extends Component {
             <option value="desc">Newest First</option>
             <option value="asc">Oldest First</option>
           </Select>
-          <Comment />
+          {comments && comments.map((comment, id) => (
+            <Comment {...comment} key={id} />
+          ))}
         </section>
         <section>
           <Button>Load More Comments</Button>
