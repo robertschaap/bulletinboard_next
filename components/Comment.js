@@ -33,15 +33,21 @@ const CommentImage = styled.img`
   border-radius: 50%;
 `;
 
-export default () => (
-  <Comment>
-    <CommentInfo>
-      <CommentImage src="" alt="" width="100%" />
-    </CommentInfo>
-    <CommentBody>
-      <Heading3>title</Heading3>
-      <Heading4>name</Heading4>
-      <p>body</p>
-    </CommentBody>
-  </Comment>
-);
+export default ({ avatar, body, name, title }) => {
+  if (!avatar || !body || !name || !title) {
+    return null;
+  }
+
+  return (
+    <Comment>
+      <CommentInfo>
+        <CommentImage src={`/static/images/${avatar}.png`} alt={avatar} width="100%" />
+      </CommentInfo>
+      <CommentBody>
+        <Heading3>{title}</Heading3>
+        <Heading4>{name}</Heading4>
+        <p>{body}</p>
+      </CommentBody>
+    </Comment>
+  );
+};
