@@ -31,7 +31,7 @@ app.prepare().then(() => {
       .limit(4)
       // .skip(+offset)
       .then(result => {
-        return app.render(req, res, "/readsomething", { comments: result });
+        return res.json(result);
       });
   });
 

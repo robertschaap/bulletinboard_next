@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "isomorphic-unfetch";
 
 import Layout from "../components/Layout";
 import Heading2 from "../components/Heading2";
@@ -7,9 +8,12 @@ import Button from "../components/Button";
 import Select from "../components/Select";
 
 class ReadSomething extends Component {
-  static getInitialProps({ query }) {
+  static async getInitialProps() {
+    const res = await fetch("http://localhost:3000/readsomething");
+    const json = await res.json();
+
     return {
-      comments: query.comments
+      comments: json
     };
   }
 
