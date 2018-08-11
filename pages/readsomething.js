@@ -23,30 +23,39 @@ class ReadSomething extends Component {
     offset: 0,
   }
 
-  loadComments = async () => {
-    let offset = this.state.offset + 4;
-    let sortDirection = "desc";
+  loadComments = async (_, changeSort) => {
+    let offset = changeSort ? 0 : this.state.offset + 4;
+    let sortDirection = changeSort ? changeSort : this.state.sortDirection;
 
     const res = await fetch(`/api/readsomething?offset=${offset}&sort=${sortDirection}`);
     const json = await res.json();
 
     this.setState({
-      comments: [
-        ...this.state.comments,
-        ...json
-      ],
+      comments: changeSort
+        ? [...json]
+        : [...this.state.comments, ...json],
+      sortDirection: sortDirection,
       offset: offset
     });
   }
 
+  sortComments = (event) => {
+    let { value } = event.target;
+    let { sortDirection } = this.state;
+
+    if (value !== sortDirection) {
+      this.loadComments(value);
+    }
+  }
+
   render() {
-    const { comments } = this.state;
+    const { comments, sortDirection } = this.state;
 
     return (
       <Layout>
         <section>
           <Heading2>Read Something</Heading2>
-          <Select>
+          <Select value={sortDirection} onChange={this.sortComments}>
             <option value="desc">Newest First</option>
             <option value="asc">Oldest First</option>
           </Select>
