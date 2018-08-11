@@ -11,8 +11,8 @@ const Select = styled.select`
   text-align: center;
 `;
 
-export default ({ value, onChange, children }) => (
-  <Select value={value} onChange={onChange}>
+export default ({ children, ...props }) => (
+  <Select {...props}>
     {children}
   </Select>
 );
