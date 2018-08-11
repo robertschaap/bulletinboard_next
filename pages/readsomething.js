@@ -23,6 +23,22 @@ class ReadSomething extends Component {
     offset: 0,
   }
 
+  loadComments = async () => {
+    let offset = this.state.offset + 4;
+    let sortDirection = "desc";
+
+    const res = await fetch(`/api/readsomething?offset=${offset}&sort=${sortDirection}`);
+    const json = await res.json();
+
+    this.setState({
+      comments: [
+        ...this.state.comments,
+        ...json
+      ],
+      offset: offset
+    });
+  }
+
   render() {
     const { comments } = this.state;
 
@@ -39,7 +55,7 @@ class ReadSomething extends Component {
           ))}
         </section>
         <section>
-          <Button>Load More Comments</Button>
+          <Button onClick={this.loadComments}>Load More Comments</Button>
         </section>
       </Layout>
     );

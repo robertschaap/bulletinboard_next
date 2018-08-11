@@ -24,12 +24,12 @@ app.prepare().then(() => {
   });
 
   server.get("/api/readsomething", (req, res) => {
-    // let { offset, sort } = req.query;
+    let { offset = 0, sort = "desc" } = req.query;
 
     Comment.find()
-      // .sort({ createdAt: sort })
+      .sort({ createdAt: sort })
       .limit(4)
-      // .skip(+offset)
+      .skip(+offset)
       .then(result => {
         return res.json(result);
       });
