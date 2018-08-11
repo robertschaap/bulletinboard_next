@@ -20,6 +20,17 @@ class WriteSomething extends Component {
     },
   }
 
+  handleChange = (event) => {
+    let { name, value } = event.target;
+
+    this.setState({
+      form : {
+        ...this.state.form,
+        [name]: value
+      }
+    });
+  }
+
   render() {
     return (
       <Layout>
@@ -27,13 +38,13 @@ class WriteSomething extends Component {
           <Heading2>Write Something</Heading2>
           <Form>
             <Label>What's your name?:</Label>
-            <Input type="text" name="name" />
+            <Input type="text" name="name" onChange={this.handleChange} />
             <Label>Write a title (max 100 characters):</Label>
-            <Input type="text" name="title" />
+            <Input type="text" name="title" onChange={this.handleChange} />
             <Label>Share your message:</Label>
-            <Textarea type="text" name="body" />
+            <Textarea type="text" name="body" onChange={this.handleChange} />
             <Label>Select an avatar:</Label>
-            <Select>
+            <Select name="avatar" onChange={this.handleChange}>
               <option value="bunny">A cute bunny</option>
               <option value="elephant">A fierce elephant</option>
               <option value="hippo">A loud hippo</option>
