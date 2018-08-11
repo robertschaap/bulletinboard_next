@@ -36,13 +36,10 @@ app.prepare().then(() => {
   });
 
   server.post("/api/writesomething", (req, res) => {
-
     let { title, body, avatar, name } = req.body;
 
     Comment.new(title, body, avatar, name)
       .then(result => res.json(result));
-    // TODO: wire to database
-    // console.log(req, res); //eslint-disable-line
   });
 
   server.get("*", (req, res) => {
