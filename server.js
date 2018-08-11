@@ -23,7 +23,7 @@ app.prepare().then(() => {
     return app.render(req, res, "/readsomething");
   });
 
-  server.get("/readsomething", (req, res) => {
+  server.get("/api/readsomething", (req, res) => {
     // let { offset, sort } = req.query;
 
     Comment.find()
@@ -35,7 +35,7 @@ app.prepare().then(() => {
       });
   });
 
-  server.post("/writesomething", (req, res) => {
+  server.post("/api/writesomething", (req, res) => {
 
     let { title, body, avatar, name } = req.body;
 

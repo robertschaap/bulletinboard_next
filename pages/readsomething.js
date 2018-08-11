@@ -9,7 +9,7 @@ import Select from "../components/Select";
 
 class ReadSomething extends Component {
   static async getInitialProps() {
-    const res = await fetch("http://localhost:3000/readsomething");
+    const res = await fetch("http://localhost:3000/api/readsomething");
     const json = await res.json();
 
     return {
