@@ -9,9 +9,9 @@ const Form = styled.form`
   border-radius: 5px;
 `;
 
-export default ({ children }) => (
+export default ({ onSubmit, children }) => (
   <ContentWrapper>
-    <Form>
+    <Form onSubmit={onSubmit}>
       {children}
     </Form>
   </ContentWrapper>
