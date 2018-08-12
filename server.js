@@ -13,7 +13,7 @@ app.prepare().then(() => {
   server.use(bodyParser.urlencoded({ extended: true }));
   server.use(bodyParser.json());
 
-  mongoose.connect("mongodb://localhost:27017/bulletinboard");
+  mongoose.connect("mongodb://localhost:27017/bulletinboard", { useNewUrlParser: true });
   mongoose.connection.on("error", console.error.bind(console), "MDB Connect Err"); //eslint-disable-line
   mongoose.Promise = global.Promise;
 
