@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -11,6 +10,4 @@ const Input = styled.input`
   margin-bottom: 0.5rem;
 `;
 
-export default (props) => (
-  <Input {...props} />
-);
+export default Input;

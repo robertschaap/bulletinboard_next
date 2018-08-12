@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Select = styled.select`
+const SelectBody = styled.select`
   font-family: 'Avenir Next', 'Arial', sans-serif;
   display: block;
   border: none;
@@ -11,8 +11,10 @@ const Select = styled.select`
   text-align: center;
 `;
 
-export default ({ children, ...props }) => (
-  <Select {...props}>
+const Select =  ({ children, ...props }) => (
+  <SelectBody {...props}>
     {children}
-  </Select>
+  </SelectBody>
 );
+
+export default Select;

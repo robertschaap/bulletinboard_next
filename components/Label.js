@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Label = styled.label`
@@ -11,6 +10,4 @@ const Label = styled.label`
   margin-bottom: 0.5rem;
 `;
 
-export default ({ children }) => (
-  <Label>{children}</Label>
-);
+export default Label;
