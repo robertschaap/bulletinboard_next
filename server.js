@@ -18,6 +18,9 @@ app.prepare().then(() => {
   mongoose.Promise = global.Promise;
 
   const Comment = require("./models/comment");
+  // const Populate = require("./models/Populate");
+  // Populate.setupComments();
+  // mongoose.connection.dropDatabase();
 
   server.get("/", (req, res) => {
     return app.render(req, res, "/readsomething");
