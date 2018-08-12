@@ -3,16 +3,18 @@ import styled from "styled-components";
 
 import ContentWrapper from "./ContentWrapper";
 
-const Footer = styled.footer`
+const FooterBody = styled.footer`
   background-color: #003399;
   color: #fff;
   padding: 2rem 0rem;
 `;
 
-export default () => (
-  <Footer>
+const Footer = () => (
+  <FooterBody>
     <ContentWrapper>
       <p>Robert Schaap 2018</p>
     </ContentWrapper>
-  </Footer>
+  </FooterBody>
 );
+
+export default Footer;

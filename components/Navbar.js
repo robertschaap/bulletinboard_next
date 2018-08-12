@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import ContentWrapper from "./ContentWrapper";
 
-const Navbar = styled.header`
+const NavbarBody = styled.header`
   color: #fff;
   background: linear-gradient(to bottom, #336600 0%, #003399 100%);
   padding: 2rem 0rem;
@@ -30,8 +30,8 @@ const Navlink = styled.a`
   }
 `;
 
-export default () => (
-  <Navbar>
+const Navbar =  () => (
+  <NavbarBody>
     <ContentWrapper>
       <Heading1>Bulletin Board</Heading1>
       <nav>
@@ -43,5 +43,7 @@ export default () => (
         </Link>
       </nav>
     </ContentWrapper>
-  </Navbar>
+  </NavbarBody>
 );
+
+export default Navbar;

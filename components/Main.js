@@ -3,15 +3,17 @@ import styled from "styled-components";
 
 import ContentWrapper from "./ContentWrapper";
 
-const Main = styled.main`
+const MainBody = styled.main`
   background-color: #33cc8f;
   padding: 2rem 0rem;
 `;
 
-export default ({ children }) => (
-  <Main>
+const Main = ({ children }) => (
+  <MainBody>
     <ContentWrapper>
       {children}
     </ContentWrapper>
-  </Main>
+  </MainBody>
 );
+
+export default Main;
