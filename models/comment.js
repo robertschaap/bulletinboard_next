@@ -6,7 +6,9 @@ const CommentSchema = Schema({
   body: String,
   avatar: String,
   name: String
-}, { timestamps: true });
+}, {
+  timestamps: true
+});
 
 CommentSchema.statics.new = (title, body, avatar, name) => {
   const record = new Comment({
