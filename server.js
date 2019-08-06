@@ -27,7 +27,7 @@ app.prepare().then(() => {
   });
 
   server.get("/api/readsomething", (req, res) => {
-    let { offset = 0, sort = "desc" } = req.query;
+    const { offset = 0, sort = "desc" } = req.query;
 
     Comment.find()
       .sort({ createdAt: sort })
@@ -39,7 +39,7 @@ app.prepare().then(() => {
   });
 
   server.post("/api/writesomething", (req, res) => {
-    let { title, body, avatar, name } = req.body;
+    const { title, body, avatar, name } = req.body;
 
     Comment.new(title, body, avatar, name)
       .then(result => res.json(result));
