@@ -22,7 +22,7 @@ class WriteSomething extends Component {
   }
 
   handleChange = (event) => {
-    let { name, value } = event.target;
+    const { name, value } = event.target;
 
     this.setState({
       form : {
