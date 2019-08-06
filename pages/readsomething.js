@@ -24,8 +24,8 @@ class ReadSomething extends Component {
   }
 
   loadComments = async (_, changeSort) => {
-    let offset = changeSort ? 0 : this.state.offset + 4;
-    let sortDirection = changeSort ? changeSort : this.state.sortDirection;
+    const offset = changeSort ? 0 : this.state.offset + 4;
+    const sortDirection = changeSort ? changeSort : this.state.sortDirection;
 
     const res = await fetch(`/api/readsomething?offset=${offset}&sort=${sortDirection}`);
     const json = await res.json();
@@ -40,8 +40,8 @@ class ReadSomething extends Component {
   }
 
   sortComments = (event) => {
-    let { value } = event.target;
-    let { sortDirection } = this.state;
+    const { value } = event.target;
+    const { sortDirection } = this.state;
 
     if (value !== sortDirection) {
       this.loadComments(value);
